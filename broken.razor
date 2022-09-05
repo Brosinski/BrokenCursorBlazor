@@ -1,6 +1,6 @@
 @page "/"
 
-<h1 @ref="test" style="cursor:@stylearr[count]">Hello, world!</h1>
+<h1 @ref="test" style="cursor:@stylearr[count]">Hover your mouse over me!</h1>
 <p>@stylearr[count]</p>
 Welcome to your new app.
 	<table>
@@ -17,6 +17,7 @@ Welcome to your new app.
 	
 }
 </table>
+<h1>DID IT WORK?</h1>
 <button @onclick="() =>{storeProp(false);}" >false</button>
 <button @onclick="() =>{storeProp(true);}">true</button>
 <SurveyPrompt Title="How is Blazor working for you?" />
