@@ -1,0 +1,37 @@
+@page "/"
+
+<h1 @ref="test" style="cursor:@stylearr[count]">Hello, world!</h1>
+<p>@stylearr[count]</p>
+Welcome to your new app.
+	<table>
+	<tr>
+		<th>Proprty</th>
+		<th>Worked</th>
+	</tr>
+@foreach( var x in results){
+		<tr>
+			<td>@x[0]</td>
+			<td>@x[1]</td>
+		</tr>
+
+	
+}
+</table>
+<button @onclick="() =>{storeProp(false);}" >false</button>
+<button @onclick="() =>{storeProp(true);}">true</button>
+<SurveyPrompt Title="How is Blazor working for you?" />
+@code{
+	int count;
+	List<dynamic[]> results = new List<dynamic[]>();
+	ElementReference test;
+	string[] stylearr = { "move", "pointer", "wait", "alias", "all-scroll", "auto", "cell", "col-resize", "context-menu", "crosshair", "copy", "e-resize", "grab", "grabbing", "none" };
+	public void changeMode(){
+		count++;
+	}
+	public void storeProp(bool res){
+		dynamic[] joe = { stylearr[count], res };
+		results.Add(joe);
+		changeMode();
+		StateHasChanged();
+	}
+}
